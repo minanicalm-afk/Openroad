@@ -16,7 +16,7 @@ const processIcons = [Compass, PenTool, Code2, Rocket];
 export default function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="Our services" title="Everything you need to" highlight="go further, faster." text="Four specialisms, one senior team. Every project includes strategy, design, development, launch and 30 days of post-launch support. Tell us where you're headed and we'll map the shortest route there — scoped transparently, estimated by phase, and agreed with you before a single line of code is written." dashes={false} />
+      <PageHero eyebrow="Our services" title="Everything you need to" highlight="go further, faster." text="Four specialisms, one senior team. Every project includes strategy, design, development, launch and 30 days of post-launch support. Tell us where you're headed and we'll map the shortest route there — scoped transparently, estimated by phase, and agreed with you before a single line of code is written." dashes={false} media="orbit" />
 
       {/* Quick nav */}
       <div className="sticky top-[72px] z-30 border-b border-primary/8 bg-base/90 backdrop-blur-xl">

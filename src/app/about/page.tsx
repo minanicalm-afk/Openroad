@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Compass, Gem, Handshake, KeyRound, LifeBuoy, Lightbulb, Linkedin, Mail, Map, MessagesSquare, MonitorPlay, Quote, ReceiptText, Route, UserCheck } from "lucide-react";
+import LiveCanvas from "@/components/LiveCanvas";
 import Reveal from "@/components/Reveal";
 import { SectionHeading } from "@/components/Shared";
 import { services, stats } from "@/lib/data";
@@ -60,6 +61,11 @@ export default function AboutPage() {
 
       {/* CEO / Founder — hero: portrait left, seamless fade into the description right */}
       <section className="relative overflow-hidden">
+        {/* Subtle Live treatment (same as Reach Us): a real-time particle
+            network drifting quietly behind the founder hero */}
+        <div className="pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,black_70%,transparent_99%)]" aria-hidden>
+          <LiveCanvas />
+        </div>
         {/* Backdrop the portrait dissolves into */}
         <div className="bg-grid absolute inset-0" aria-hidden />
         <div className="pointer-events-none absolute top-[-140px] right-[-100px] h-[440px] w-[440px] rounded-full bg-accent/12 blur-[120px]" aria-hidden />

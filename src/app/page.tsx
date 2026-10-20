@@ -38,11 +38,11 @@ export default function HomePage() {
           className="object-cover object-center saturate-[1.15]"
           aria-hidden
         />
-        {/* Animated hero film — "the digital open road": light streaming
-            down a glowing road toward a network constellation. Self-hosted
-            in /public/videos (8s seamless loop, ~250KB, muted + inline so
-            it autoplays everywhere). Sits over the still image, which
-            remains as the fallback for reduced-motion / no-video. */}
+        {/* Hero film — "the digital open road" (chosen treatment): light
+            streaming down a glowing road toward a network constellation.
+            Self-hosted in /public/videos (8s seamless loop, ~250KB, muted
+            + inline so it autoplays everywhere). Sits over the still
+            image, which remains as the fallback for reduced-motion. */}
         <video
           className="absolute inset-0 h-full w-full object-cover saturate-[1.15] motion-reduce:hidden"
           autoPlay

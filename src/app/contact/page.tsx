@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Image from "next/image";
 import { Check, Clock3, Mail, MapPin, MessageCircle, MousePointerClick, Plus, ShieldCheck, Sparkles } from "lucide-react";
+import LiveCanvas from "@/components/LiveCanvas";
 import Reveal from "@/components/Reveal";
 import { SectionHeading } from "@/components/Shared";
 import ContactForm from "./ContactForm";
@@ -56,6 +57,11 @@ export default function ContactPage({ searchParams }: { searchParams: Promise<{ 
       <div className="absolute inset-0 bg-gradient-to-r from-base/50 via-transparent to-base/50" aria-hidden />
       <div className="bg-grid absolute inset-x-0 top-0 h-[480px] [mask-image:linear-gradient(to_bottom,black_25%,transparent_95%)]" aria-hidden />
       <div className="pointer-events-none absolute top-[-120px] left-1/2 h-[380px] w-[680px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" aria-hidden />
+      {/* Live treatment: real-time particle network drifting over the top
+          hero zone, fading out before the form */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] [mask-image:linear-gradient(to_bottom,black_55%,transparent_98%)]" aria-hidden>
+        <LiveCanvas />
+      </div>
 
       <div className="relative">
         {/* Centred header */}

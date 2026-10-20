@@ -5,12 +5,19 @@ import { ArrowRight, ArrowUpRight, Check, Mail, MessagesSquare } from "lucide-re
 import Reveal from "./Reveal";
 import { heroImage } from "@/lib/data";
 
-export function PageHero({ eyebrow, title, highlight, text, children, dashes = true }: { eyebrow: string; title: string; highlight: string; text: string; children?: ReactNode; dashes?: boolean }) {
+export function PageHero({ eyebrow, title, highlight, text, children, dashes = true, media }: { eyebrow: string; title: string; highlight: string; text: string; children?: ReactNode; dashes?: boolean; media?: "orbit" }) {
   return (
     <section className="relative overflow-hidden pt-[72px]">
       {/* Same open-road hero image as the homepage, on every page — see the
           note above `heroImage` in src/lib/data.ts for why it was chosen. */}
       <Image src={heroImage} alt="" fill sizes="100vw" className="object-cover object-center saturate-[1.2]" aria-hidden />
+      {media === "orbit" && (
+        /* Orbit treatment: the Earth-at-night hero, animated (slow drift +
+           glowing connection arcs). Still image above stays as fallback. */
+        <video className="absolute inset-0 h-full w-full object-cover saturate-[1.2] motion-reduce:hidden" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+          <source src="/videos/hero-orbit.mp4" type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0 bg-gradient-to-r from-base/78 via-base/40 to-base/10" aria-hidden />
       <div className="absolute inset-0 bg-gradient-to-b from-base/45 via-transparent to-base" aria-hidden />
       <div className="bg-grid absolute inset-0" aria-hidden />
