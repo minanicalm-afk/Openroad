@@ -8,9 +8,17 @@ import { projects } from "@/lib/data";
 /* Only offer filters for categories that actually have projects */
 const filters = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
+/* First row under "All": the showcases we lead with */
+const priority = ["Ridgeform Construction", "Kalimoni Nails & Beauty", "FleetPay Go"];
+const ordered = [...projects].sort((a, b) => {
+  const ai = priority.indexOf(a.title);
+  const bi = priority.indexOf(b.title);
+  return (ai === -1 ? priority.length : ai) - (bi === -1 ? priority.length : bi);
+});
+
 export default function ProjectsGallery() {
   const [active, setActive] = useState<string>("All");
-  const visible = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const visible = active === "All" ? ordered : projects.filter((p) => p.category === active);
 
   return (
     <>
