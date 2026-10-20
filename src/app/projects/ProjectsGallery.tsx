@@ -5,10 +5,11 @@ import Link from "next/link";
 import { ArrowUpRight, BadgeCheck } from "lucide-react";
 import { projects } from "@/lib/data";
 
-const filters = ["All", "Web Application", "Portfolio", "SaaS Product", "Mobile Application"] as const;
+/* Only offer filters for categories that actually have projects */
+const filters = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
 export default function ProjectsGallery() {
-  const [active, setActive] = useState<(typeof filters)[number]>("All");
+  const [active, setActive] = useState<string>("All");
   const visible = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
@@ -38,6 +39,11 @@ export default function ProjectsGallery() {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-primary/55">{p.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">{p.tags.map((t) => <span key={t} className="rounded-full bg-primary/6 px-3 py-1 text-xs font-medium text-primary/55">{t}</span>)}</div>
               <p className="mt-5 flex items-center gap-2 border-t border-primary/8 pt-4 text-sm font-bold text-accent"><BadgeCheck className="h-4 w-4 shrink-0" /> {p.result}</p>
+              {p.url && (
+                <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-[family-name:var(--font-sora)] text-sm font-bold text-primary transition hover:text-accent">
+                  Visit live site <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
             </div>
           </article>
         ))}

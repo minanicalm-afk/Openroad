@@ -100,6 +100,7 @@ export type Project = {
   tags: string[];
   result: string;
   gradient: string;
+  url?: string;
 };
 
 export const projects: Project[] = [
@@ -114,14 +115,15 @@ export const projects: Project[] = [
     gradient: "from-amber-500/80 to-orange-600/80",
   },
   {
-    title: "Maya Chen — Architect",
+    title: "Ridgeform Construction",
     category: "Portfolio",
-    year: "2025",
-    description: "Editorial portfolio for an award-winning architect, with immersive project stories and a press-ready press kit.",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1400&auto=format&fit=crop",
-    tags: ["Next.js", "CMS", "Motion"],
-    result: "3× more enquiries in 60 days",
-    gradient: "from-stone-400/80 to-zinc-600/80",
+    year: "2026",
+    description: "A full company website for a Nairobi construction firm — selected work across four counties, four service lines, a transparent four-step process, and verified credentials (NCA registration, insurance) up front.",
+    image: "/images/projects/ridgeform.jpg",
+    tags: ["Company Website", "Project Register", "Quote Requests"],
+    result: "Quote requests via WhatsApp, call or form — one tap from any page",
+    gradient: "from-amber-500/80 to-orange-600/80",
+    url: "https://ridgeform-one.vercel.app/",
   },
   {
     title: "PulseBoard",
@@ -134,13 +136,24 @@ export const projects: Project[] = [
     gradient: "from-violet-500/80 to-indigo-600/80",
   },
   {
+    title: "Chokaa Works",
+    category: "Portfolio",
+    year: "2026",
+    description: "A contractor website where every job in the register shows its scope, contract band and duration — no slogans. Five service pages, a four-step programme with durations, client proof and an insights journal.",
+    image: "/images/projects/chokaa.jpg",
+    tags: ["Company Website", "Work Register", "Insights Blog"],
+    result: "Every project lists scope, contract band & duration — trust before contact",
+    gradient: "from-emerald-500/80 to-teal-600/80",
+    url: "https://chokaa.vercel.app/",
+  },
+  {
     title: "TrailMate",
     category: "Mobile Application",
     year: "2025",
     description: "Hiking companion app with offline trail maps, route recording and community challenges for 40k outdoor lovers.",
     image: "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1400&auto=format&fit=crop",
     tags: ["React Native", "Offline Maps", "Expo"],
-    result: "4.9★ across both app stores",
+    result: "4.9\u2605 across both app stores",
     gradient: "from-emerald-500/80 to-teal-600/80",
   },
   {
@@ -154,14 +167,15 @@ export const projects: Project[] = [
     gradient: "from-sky-500/80 to-blue-600/80",
   },
   {
-    title: "Studio Ora",
+    title: "Plinth Construction",
     category: "Portfolio",
-    year: "2024",
-    description: "A cinematic portfolio for a photography studio — full-bleed galleries, client proofing and print-shop checkout.",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400&auto=format&fit=crop",
-    tags: ["Portfolio", "E-commerce", "CMS"],
-    result: "Print sales up 64% post-launch",
-    gradient: "from-rose-500/80 to-pink-600/80",
+    year: "2026",
+    description: "A contractor website with a filterable project gallery spanning 12 counties, five service lines, the studio story, team and client testimonials — with office hours and quote requests kept one tap away.",
+    image: "/images/projects/plinth.jpg",
+    tags: ["Company Website", "Filterable Gallery", "Testimonials"],
+    result: "Projects, team & testimonials across 12 counties in one clear register",
+    gradient: "from-cyan-500/80 to-sky-600/80",
+    url: "https://plinth-lyart.vercel.app/",
   },
   {
     title: "FleetPay Go",
@@ -190,7 +204,7 @@ export const projects: Project[] = [
     description: "Property search and CRM platform with map search, saved homes and agent lead-routing for a growing brokerage.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1400&auto=format&fit=crop",
     tags: ["Next.js", "Maps", "CRM"],
-    result: "2.4× qualified leads month one",
+    result: "2.4\u00d7 qualified leads month one",
     gradient: "from-orange-500/80 to-red-600/80",
   },
 ];
