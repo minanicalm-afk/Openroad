@@ -120,7 +120,7 @@ export const projects: Project[] = [
     category: "SaaS Product",
     year: "2026",
     description: "A multi-branch SaaS platform for a phone distribution business — daily stock, sales and cash tracking across Mombasa and Nyandarua, with role-based views for sales agents, team leads and admins, plus suppliers, reports and a full audit log.",
-    image: "/images/projects/ray.jpg",
+    image: "/images/projects/ray-v2.jpg",
     tags: ["SaaS Dashboard", "Role-based Access", "Reports & Audit Log"],
     result: "Two branches, one live view of stock, sales & cash",
     gradient: "from-violet-500/80 to-indigo-600/80",
