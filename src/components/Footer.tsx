@@ -3,6 +3,8 @@ import { ArrowUpRight, Github, Instagram, Linkedin, Mail, MapPin, Twitter } from
 import { Logo } from "./Navbar";
 import { navItems } from "@/lib/nav";
 import { services } from "@/lib/data";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import { FaWhatsapp } from "react-icons/fa";
 import Year from "./Year";
 
 export default function Footer() {
@@ -48,7 +50,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-bold tracking-[0.24em] text-primary/40 uppercase">Reach us</h3>
             <ul className="mt-5 space-y-3 text-sm text-primary/65">
-              <li className="flex gap-2.5"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href="mailto:hello@openroadsoftware.com" className="hover:text-accent">hello@openroadsoftware.com</a></li>
+              <li className="flex gap-2.5"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent">{CONTACT_EMAIL}</a></li>
+              <li className="flex gap-2.5"><FaWhatsapp className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-accent">WhatsApp · {WHATSAPP_DISPLAY}</a></li>
               <li className="flex gap-2.5"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />Working remotely, worldwide</li>
             </ul>
             <Link href="/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full border border-button/60 px-5 py-2.5 text-sm font-semibold text-button transition hover:bg-button hover:text-onbutton">

@@ -22,6 +22,10 @@ export type Service = {
   deliverables: string[];
   stack: string[];
   timeline: string;
+  outcome: string;
+  bestFor: string[];
+  notFor: string;
+  investment: string;
 };
 
 export const services: Service[] = [
@@ -40,6 +44,10 @@ export const services: Service[] = [
     deliverables: ["Product strategy & UX design", "Custom dashboards & admin panels", "Customer portals & marketplaces", "API development & integrations", "Authentication, roles & payments", "Performance, SEO & analytics"],
     stack: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     timeline: "4 – 12 weeks",
+    outcome: "Replace spreadsheets and scattered WhatsApp follow-ups with one system your whole team actually uses.",
+    bestFor: ["Businesses outgrowing spreadsheets and manual follow-ups", "Teams that need customer portals, dashboards or internal tools"],
+    notFor: "You only need people to find and contact you — a portfolio website will serve you better, faster and for less.",
+    investment: "KSh 120,000 – 300,000",
   },
   {
     slug: "portfolio-websites",
@@ -56,6 +64,10 @@ export const services: Service[] = [
     deliverables: ["Art direction & personal branding", "Portfolio & case-study systems", "CMS so you can update it yourself", "Booking / enquiry flows", "Copy polish & image direction", "Launch, SEO & social previews"],
     stack: ["Next.js", "Sanity / CMS", "Framer Motion", "Tailwind CSS", "Vercel"],
     timeline: "2 – 5 weeks",
+    outcome: "Turn searches and referrals into enquiries with a site that proves you're credible before the first call.",
+    bestFor: ["Founders, professionals and companies whose work sells on trust", "Businesses that need enquiries, bookings or quote requests"],
+    notFor: "Customers need to log in, pay or manage data — that's a web application, not a portfolio site.",
+    investment: "KSh 50,000 – 150,000",
   },
   {
     slug: "saas-products",
@@ -72,6 +84,10 @@ export const services: Service[] = [
     deliverables: ["MVP scoping & roadmap", "Multi-tenant architecture", "Subscriptions & billing (Stripe)", "Onboarding & email flows", "Admin, analytics & reporting", "Scale, security & DevOps"],
     stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis", "AWS / Vercel"],
     timeline: "6 – 16 weeks",
+    outcome: "Launch a subscription product customers can pay for — built so you never have to rebuild it when you grow.",
+    bestFor: ["Founders validating a paid product with real subscribers", "Businesses turning a repeated service into a product"],
+    notFor: "You're still checking whether anyone wants the idea — validate first with a focused page and real conversations.",
+    investment: "KSh 180,000 – 300,000",
   },
   {
     slug: "mobile-applications",
@@ -88,6 +104,10 @@ export const services: Service[] = [
     deliverables: ["UX & UI design for mobile", "iOS & Android (one codebase)", "Push notifications & offline mode", "Payments & in-app purchases", "Backend APIs & admin panel", "App Store & Play Store launch"],
     stack: ["React Native", "Expo", "TypeScript", "Node.js", "Firebase", "PostgreSQL"],
     timeline: "5 – 14 weeks",
+    outcome: "Put your service in your customer's pocket — one app for iOS and Android, from a single codebase.",
+    bestFor: ["Services customers use repeatedly or on the move", "Field teams that need data captured where the work happens"],
+    notFor: "You mainly need to be found and contacted — a fast website does that job for less.",
+    investment: "KSh 150,000 – 300,000",
   },
 ];
 

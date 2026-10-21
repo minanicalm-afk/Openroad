@@ -2,8 +2,10 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { services } from "@/lib/data";
+import { WHATSAPP_URL } from "@/lib/contact";
+import { FaWhatsapp } from "react-icons/fa";
 
-const budgets = ["Under $2k", "$2k – $5k", "$5k – $10k", "$10k – $25k", "$25k+", "Not sure yet"];
+const budgets = ["KSh 50,000 – 100,000", "KSh 100,000 – 150,000", "KSh 150,000 – 200,000", "KSh 200,000 – 250,000", "KSh 250,000 – 300,000", "Not sure yet"];
 
 export default function ContactForm({ initialService = "" }: { initialService?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -29,7 +31,7 @@ export default function ContactForm({ initialService = "" }: { initialService?: 
       <div className="rounded-[26px] border border-emerald-400/30 bg-emerald-400/8 p-10 text-center">
         <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-400" />
         <h2 className="mt-5 font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">Message received — you&apos;re on the road! 🎉</h2>
-        <p className="mx-auto mt-3 max-w-md leading-relaxed text-primary/60">Thanks for reaching out. We&apos;ll reply within one business day with honest next steps and, if it&apos;s a fit, a time for a free discovery call.</p>
+        <p className="mx-auto mt-3 max-w-md leading-relaxed text-primary/60">Thanks for reaching out — your message has been emailed to our team. We&apos;ll reply within one business day with honest next steps and, if it&apos;s a fit, a time for a free discovery call.</p>
         <button onClick={() => setStatus("idle")} className="mt-7 rounded-full border border-primary/20 px-6 py-3 text-sm font-semibold text-primary transition hover:border-primary/50">Send another message</button>
       </div>
     );
@@ -69,6 +71,12 @@ export default function ContactForm({ initialService = "" }: { initialService?: 
         {status === "sending" ? <><Loader2 className="h-5 w-5 animate-spin" /> Sending…</> : <><Send className="h-5 w-5" /> Send message</>}
       </button>
       <p className="mt-4 text-xs text-primary/35">By sending, you agree to be contacted about your enquiry. We never share your details.</p>
+      <p className="mt-4 border-t border-primary/8 pt-4 text-sm text-primary/50">
+        Prefer to chat?{" "}
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-bold text-[#1eb85a] hover:underline">
+          <FaWhatsapp className="h-4 w-4" /> Start a WhatsApp conversation
+        </a>
+      </p>
     </form>
   );
 }

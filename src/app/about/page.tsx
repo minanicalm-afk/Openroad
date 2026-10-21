@@ -6,6 +6,7 @@ import LiveCanvas from "@/components/LiveCanvas";
 import Reveal from "@/components/Reveal";
 import { SectionHeading } from "@/components/Shared";
 import { services, stats } from "@/lib/data";
+import { CONTACT_EMAIL, WHATSAPP_URL } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "About — The Openroad Story",
@@ -34,7 +35,7 @@ const founder = {
 const coFounder = {
   name: "Peter Rague",
   role: "Co-Founder",
-  initials: "PR",
+  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
   bio: [
     "Peter Rague is a Co-Founder of Openroad Software Solution, working alongside Calm Minani to help lead the studio and the work it delivers.",
     "Together, the founders keep Openroad deliberately small and senior: clear direction, direct communication and personal accountability on every project, from the first conversation through launch and beyond.",
@@ -70,73 +71,102 @@ export default function AboutPage() {
   return (
     <>
 
-      {/* CEO / Founder — hero: portrait left, seamless fade into the description right */}
-      <section className="relative overflow-hidden">
+      {/* Founder + Co-founder — one leadership section: overlapping
+          portrait treatments on the left, each profile on the right */}
+      <section className="relative overflow-hidden pt-[72px]" aria-labelledby="founders-heading">
         {/* Subtle Live treatment (same as Reach Us): a real-time particle
-            network drifting quietly behind the founder hero */}
+            network drifting quietly behind the leadership hero */}
         <div className="pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,black_70%,transparent_99%)]" aria-hidden>
           <LiveCanvas />
         </div>
-        {/* Backdrop the portrait dissolves into */}
         <div className="bg-grid absolute inset-0" aria-hidden />
         <div className="pointer-events-none absolute top-[-140px] right-[-100px] h-[440px] w-[440px] rounded-full bg-accent/12 blur-[120px]" aria-hidden />
         <div className="pointer-events-none absolute bottom-[-160px] left-[32%] h-[380px] w-[380px] rounded-full bg-accent2/10 blur-[120px]" aria-hidden />
-        <div className="relative grid lg:min-h-[720px] lg:grid-cols-[46%_54%]">
-          {/* Portrait — masked so it melts into the page background:
-              rightwards on desktop, downwards on mobile */}
-          <div className="relative h-[340px] sm:h-[420px] lg:h-auto">
-            {/* Portrait bleeds slightly under the text column so the multi-stage
-                mask can dissolve it slowly — no visible seam */}
-            <div className="absolute inset-0 lg:w-[118%]">
-              <Image src={founder.image} alt={`${founder.name}, ${founder.role} of Openroad Software Solution`} fill priority sizes="(min-width:1024px) 54vw, 100vw" className="object-cover object-top [mask-image:linear-gradient(to_bottom,black_42%,rgba(0,0,0,0.55)_70%,transparent_98%)] lg:[mask-image:linear-gradient(to_right,black_30%,rgba(0,0,0,0.75)_52%,rgba(0,0,0,0.35)_75%,transparent_97%)]" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent/15 via-transparent to-transparent" aria-hidden />
-            {/* Soft top wash so the fixed navbar stays readable over the photo */}
-            <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-base/75 via-base/25 to-transparent" aria-hidden />
-            {/* Bottom melt on desktop too — the portrait should dissolve into
-                the page, never end in a hard horizontal cut */}
-            <div className="absolute inset-x-0 bottom-0 hidden h-56 bg-gradient-to-t from-base via-base/45 to-transparent lg:block" aria-hidden />
-            {/* Glass name badge floating on the portrait */}
-            <div className="absolute bottom-9 left-6 z-10 hidden lg:block xl:left-10">
-              <div className="rounded-2xl border border-white/25 bg-black/25 px-5 py-4 shadow-2xl backdrop-blur-md">
-                <p className="font-[family-name:var(--font-sora)] text-lg leading-tight font-bold text-white">{founder.name}</p>
-                <p className="mt-1 text-[11px] font-bold tracking-[0.2em] text-white/70 uppercase">{founder.role} · Est. 2021</p>
-              </div>
-            </div>
-          </div>
 
-          {/* Description */}
-          <div className="relative z-10 flex items-center px-5 pt-2 pb-20 sm:px-8 lg:py-16 lg:pl-2 lg:pr-[max(2.5rem,calc((100vw-1440px)/2+1.5rem))]">
-            <Reveal className="max-w-2xl">
-              <p className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/8 px-4 py-1.5 text-xs font-bold tracking-[0.22em] text-accent uppercase">
-                <span className="h-1.5 w-1.5 animate-glow rounded-full bg-accent2" /> About Openroad · Meet the founder
-              </p>
-              <h1 className="mt-6 font-[family-name:var(--font-sora)] text-[42px] leading-[1.05] font-bold tracking-tight text-primary sm:text-6xl">
-                The person behind <span className="text-gradient">the wheel.</span>
-              </h1>
-              <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-[family-name:var(--font-sora)] text-lg font-bold text-primary">
-                <span className="h-px w-10 bg-accent" aria-hidden /> {founder.name}
-                <span className="rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">{founder.role}</span>
-              </p>
-              <div className="mt-5 space-y-4 leading-relaxed text-primary/60">
-                {founder.bio.map((paragraph) => (<p key={paragraph.slice(0, 24)}>{paragraph}</p>))}
+        <div className="relative mx-auto grid max-w-[1440px] items-center gap-14 px-5 pt-12 pb-20 sm:px-6 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:gap-10 lg:pt-16 lg:pb-24">
+          {/* Overlapping image composition */}
+          <Reveal className="relative mx-auto w-full max-w-[620px]">
+            <div className="relative h-[500px] sm:h-[580px] lg:h-[680px]" aria-label="Founder and co-founder portraits">
+              {/* Founder portrait */}
+              <div className="absolute top-0 left-0 h-[74%] w-[76%] overflow-hidden rounded-[34px] border border-primary/10 bg-elevated shadow-2xl shadow-primary/20">
+                <Image src={founder.image} alt={`${founder.name}, ${founder.role} of Openroad Software Solution`} fill priority sizes="(min-width:1024px) 44vw, 76vw" className="object-cover object-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040814]/72 via-transparent to-transparent" aria-hidden />
+                <div className="absolute top-5 left-5 max-w-[calc(100%-2.5rem)] rounded-2xl border border-white/25 bg-black/25 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-5 sm:py-4">
+                  <p className="font-[family-name:var(--font-sora)] text-base leading-tight font-bold text-white sm:text-lg">{founder.name}</p>
+                  <p className="mt-1 text-[10px] font-bold tracking-[0.18em] text-white/70 uppercase sm:text-[11px] sm:tracking-[0.2em]">{founder.role} · Est. 2021</p>
+                </div>
               </div>
-              <figure className="mt-7 border-l-2 border-accent pl-5">
-                <Quote className="h-5 w-5 text-accent" aria-hidden />
-                <blockquote className="mt-2 leading-relaxed font-medium text-primary/80 italic">“{founder.quote}”</blockquote>
-              </figure>
+
+              {/* Co-founder portrait, layered over the founder image */}
+              <div className="absolute right-0 bottom-0 z-[5] h-[56%] w-[64%] overflow-hidden rounded-[34px] border border-accent/25 bg-elevated shadow-2xl shadow-accent/15 ring-8 ring-base/60">
+                <Image src={coFounder.image} alt={`${coFounder.name}, ${coFounder.role} of Openroad Software Solution`} fill sizes="(min-width:1024px) 30vw, 64vw" className="object-cover object-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040814]/72 via-transparent to-transparent" aria-hidden />
+                <div className="absolute bottom-5 left-5 max-w-[calc(100%-2.5rem)] rounded-2xl border border-white/25 bg-black/25 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-5 sm:py-4">
+                  <p className="font-[family-name:var(--font-sora)] text-base leading-tight font-bold text-white sm:text-lg">{coFounder.name}</p>
+                  <p className="mt-1 text-[10px] font-bold tracking-[0.18em] text-white/70 uppercase sm:text-[11px] sm:tracking-[0.2em]">{coFounder.role}</p>
+                </div>
+              </div>
+
+              {/* Joining badge where the two portraits overlap */}
+              <div className="absolute top-[44%] left-[36%] z-10 hidden -translate-x-1/2 -translate-y-1/2 sm:block" aria-hidden>
+                <span className="grid h-16 w-16 place-items-center rounded-full border border-white/30 bg-gradient-to-br from-accent to-accent2 font-[family-name:var(--font-sora)] text-sm font-bold text-white shadow-2xl shadow-accent/30">
+                  CM + PR
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Founder and co-founder profiles */}
+          <div className="relative z-10 min-w-0">
+            <Reveal className="max-w-3xl">
+              <h1 id="founders-heading" className="font-[family-name:var(--font-sora)] text-[42px] leading-[1.05] font-bold tracking-tight text-primary sm:text-6xl">
+                The people behind <span className="text-gradient">the wheel.</span>
+              </h1>
+
+              <div className="mt-8 divide-y divide-primary/10">
+                <article className="pb-8">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <h2 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">{founder.name}</h2>
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">{founder.role}</span>
+                  </div>
+                  <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-primary/60">
+                    {founder.bio.map((paragraph) => (<p key={paragraph.slice(0, 24)}>{paragraph}</p>))}
+                  </div>
+                  <figure className="mt-5 border-l-2 border-accent pl-5">
+                    <Quote className="h-5 w-5 text-accent" aria-hidden />
+                    <blockquote className="mt-2 leading-relaxed font-medium text-primary/80 italic">“{founder.quote}”</blockquote>
+                  </figure>
+                </article>
+
+                <article className="pt-8">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <h2 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">{coFounder.name}</h2>
+                    <span className="rounded-full bg-accent2/10 px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">{coFounder.role}</span>
+                  </div>
+                  <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-primary/60">
+                    {coFounder.bio.map((paragraph) => (<p key={paragraph.slice(0, 24)}>{paragraph}</p>))}
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {coFounder.focus.map((item) => (
+                      <span key={item} className="rounded-full border border-accent/25 bg-accent/8 px-4 py-1.5 text-[13px] font-semibold text-accent">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </div>
+
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-button px-7 py-3.5 font-bold text-onbutton shadow-xl shadow-button/25 transition hover:bg-buttondark">
-                  Talk to the founder <ArrowRight className="h-4 w-4" />
+                  Talk to our team <ArrowRight className="h-4 w-4" />
                 </Link>
-                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="Founder on LinkedIn" className="grid h-12 w-12 place-items-center rounded-full border border-primary/15 text-primary transition hover:border-primary/40 hover:bg-primary/5"><Linkedin className="h-5 w-5" /></a>
-                <a href="mailto:hello@openroadsoftware.com" aria-label="Email the founder" className="grid h-12 w-12 place-items-center rounded-full border border-primary/15 text-primary transition hover:border-primary/40 hover:bg-primary/5"><Mail className="h-5 w-5" /></a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="Openroad leadership on LinkedIn" className="grid h-12 w-12 place-items-center rounded-full border border-primary/15 text-primary transition hover:border-primary/40 hover:bg-primary/5"><Linkedin className="h-5 w-5" /></a>
+                <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email Openroad" className="grid h-12 w-12 place-items-center rounded-full border border-primary/15 text-primary transition hover:border-primary/40 hover:bg-primary/5"><Mail className="h-5 w-5" /></a>
               </div>
             </Reveal>
           </div>
         </div>
-        {/* Whole-hero dissolve: grid, glows and portrait melt into the page
-            background so the next section reads as one continuous canvas */}
+
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-44 bg-gradient-to-t from-base via-base/65 to-transparent" aria-hidden />
       </section>
 
@@ -157,59 +187,6 @@ export default function AboutPage() {
           </div>
         </Reveal>
       </div>
-
-      {/* Co-founder */}
-      <section className="mx-auto max-w-[1440px] px-5 pt-20 sm:px-6" aria-labelledby="co-founder-heading">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-[32px] border border-primary/10 bg-surface shadow-xl shadow-primary/5">
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-accent2 to-accent" aria-hidden />
-            <div className="bg-grid absolute inset-0 opacity-50" aria-hidden />
-            <div className="pointer-events-none absolute -top-32 right-[8%] h-72 w-72 rounded-full bg-accent/12 blur-[100px]" aria-hidden />
-            <div className="pointer-events-none absolute -bottom-36 left-[-60px] h-72 w-72 rounded-full bg-accent2/10 blur-[100px]" aria-hidden />
-
-            <div className="relative grid items-center gap-10 px-7 py-10 sm:px-11 sm:py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-              <div className="mx-auto w-full max-w-sm text-center lg:mx-0">
-                <div className="relative mx-auto grid aspect-square w-full max-w-[280px] place-items-center overflow-hidden rounded-[36px] border border-accent/20 bg-gradient-to-br from-accent/20 via-elevated to-accent2/20 shadow-2xl shadow-accent/10">
-                  <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
-                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-                  <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-accent2/20 blur-3xl" aria-hidden />
-                  <span className="relative font-[family-name:var(--font-sora)] text-7xl font-bold tracking-tight text-primary sm:text-8xl">
-                    {coFounder.initials}
-                  </span>
-                </div>
-                <p className="mt-6 font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">{coFounder.name}</p>
-                <p className="mt-2 inline-flex rounded-full bg-accent/10 px-3.5 py-1.5 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">
-                  {coFounder.role}
-                </p>
-              </div>
-
-              <div>
-                <p className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/8 px-4 py-1.5 text-xs font-bold tracking-[0.22em] text-accent uppercase">
-                  <span className="h-1.5 w-1.5 animate-glow rounded-full bg-accent2" /> Meet the co-founder
-                </p>
-                <h2 id="co-founder-heading" className="mt-6 font-[family-name:var(--font-sora)] text-3xl leading-tight font-bold tracking-tight text-primary sm:text-5xl">
-                  {coFounder.name}, <span className="text-gradient">helping lead the road ahead.</span>
-                </h2>
-                <div className="mt-6 space-y-4 text-base leading-relaxed text-primary/60">
-                  {coFounder.bio.map((paragraph) => (
-                    <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-                  ))}
-                </div>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {coFounder.focus.map((item) => (
-                    <span key={item} className="rounded-full border border-accent/25 bg-accent/8 px-4 py-1.5 text-[13px] font-semibold text-accent">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <Link href="/contact" className="group mt-8 inline-flex items-center gap-2 font-[family-name:var(--font-sora)] text-[15px] font-bold text-primary transition hover:text-accent">
-                  Work with our team <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
 
       {/* Story */}
       <section className="mx-auto max-w-[1440px] px-5 pt-16 pb-24 sm:px-6 lg:pt-20">
@@ -302,9 +279,9 @@ export default function AboutPage() {
                   <h3 className="mt-3 font-[family-name:var(--font-sora)] text-xl font-bold text-primary">{m.title}</h3>
                   <p className="mt-2 leading-relaxed text-primary/55">{m.text}</p>
                   {m.year === "2026" && (
-                    <Link href="/contact" className="group mt-4 inline-flex items-center gap-2 font-[family-name:var(--font-sora)] text-sm font-bold text-accent">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="group mt-4 inline-flex items-center gap-2 font-[family-name:var(--font-sora)] text-sm font-bold text-accent">
                       Start your project <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    </a>
                   )}
                 </div>
               </Reveal>

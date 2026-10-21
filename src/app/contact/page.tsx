@@ -7,6 +7,8 @@ import Reveal from "@/components/Reveal";
 import { SectionHeading } from "@/components/Shared";
 import ContactForm from "./ContactForm";
 import { services } from "@/lib/data";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import { FaWhatsapp } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Reach Us — Start Your Project",
@@ -76,17 +78,7 @@ export default function ContactPage({ searchParams }: { searchParams: Promise<{ 
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-primary/65">
               Tell us about your project, or email us directly. Either way, you&apos;ll hear back within one business day — with honest next steps, not a sales pitch.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="mailto:hello@openroadsoftware.com" className="inline-flex items-center gap-2.5 rounded-full border border-primary/10 bg-elevated px-5 py-2.5 text-sm font-semibold text-primary shadow-md shadow-primary/5 transition hover:border-accent/50">
-                <Mail className="h-4 w-4 text-accent" /> hello@openroadsoftware.com
-              </a>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-primary/10 bg-elevated px-5 py-2.5 text-sm font-semibold text-primary shadow-md shadow-primary/5">
-                <Clock3 className="h-4 w-4 text-accent" /> Replies within 1 business day
-              </span>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-primary/10 bg-elevated px-5 py-2.5 text-sm font-semibold text-primary shadow-md shadow-primary/5">
-                <MapPin className="h-4 w-4 text-accent" /> Remote-first · Worldwide
-              </span>
-            </div>
+{""}
           </Reveal>
         </header>
 
@@ -114,7 +106,8 @@ export default function ContactPage({ searchParams }: { searchParams: Promise<{ 
                   </ul>
                   <p className="mt-4 text-sm text-primary/55">Short on time? Two sentences is fine — we&apos;ll ask the rest on the call.</p>
                   <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-primary/8 pt-3.5 text-[13px]">
-                    <a href="mailto:hello@openroadsoftware.com" className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-accent"><Mail className="h-4 w-4 shrink-0 text-accent" /> hello@openroadsoftware.com</a>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-accent"><Mail className="h-4 w-4 shrink-0 text-accent" /> {CONTACT_EMAIL}</a>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-accent"><FaWhatsapp className="h-4 w-4 shrink-0 text-[#25D366]" /> WhatsApp · {WHATSAPP_DISPLAY}</a>
                     <span className="inline-flex items-center gap-2 text-primary/55"><Clock3 className="h-4 w-4 shrink-0 text-accent" /> Replies within 1 business day</span>
                     <span className="inline-flex items-center gap-2 text-primary/55"><MapPin className="h-4 w-4 shrink-0 text-accent" /> Remote-first · 9 countries</span>
                   </div>
@@ -173,7 +166,7 @@ export default function ContactPage({ searchParams }: { searchParams: Promise<{ 
             </div>
             <p className="mt-10 text-center text-primary/60">
               Something else on your mind?{" "}
-              <a href="mailto:hello@openroadsoftware.com" className="inline-flex items-center gap-1.5 font-bold text-accent hover:underline">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-1.5 font-bold text-accent hover:underline">
                 <Mail className="h-4 w-4" /> Ask us anything
               </a>
             </p>

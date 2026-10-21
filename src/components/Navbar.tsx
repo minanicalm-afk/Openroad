@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { navItems } from "@/lib/nav";
+import { WHATSAPP_URL } from "@/lib/contact";
+import { FaWhatsapp } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 
 export function Logo({ onDark = false }: { onDark?: boolean }) {
@@ -56,9 +58,9 @@ export default function Navbar() {
           })}
         </ul>
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden items-center gap-1.5 rounded-full bg-button px-5 py-2.5 text-sm font-bold text-onbutton shadow-lg shadow-button/25 transition hover:bg-buttondark sm:inline-flex">
-            Start a project <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hidden items-center gap-1.5 rounded-full bg-button px-5 py-2.5 text-sm font-bold text-onbutton shadow-lg shadow-button/25 transition hover:bg-buttondark sm:inline-flex">
+            <FaWhatsapp className="h-4 w-4" aria-hidden /> Start a project
+          </a>
           <button onClick={() => setOpen(!open)} className="grid h-10 w-10 place-items-center rounded-full border border-primary/15 text-primary lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -80,7 +82,7 @@ export default function Navbar() {
               );
             })}
           </ul>
-          <Link href="/contact" className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-button px-5 py-3.5 font-bold text-onbutton">Start a project <ArrowUpRight className="h-4 w-4" /></Link>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-button px-5 py-3.5 font-bold text-onbutton"><FaWhatsapp className="h-5 w-5" aria-hidden /> Start a project</a>
         </div>
       )}
     </header>

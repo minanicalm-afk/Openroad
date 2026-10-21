@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Check, Mail, MessagesSquare } from "lucide-react";
 import Reveal from "./Reveal";
 import { heroImage } from "@/lib/data";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 export function PageHero({ eyebrow, title, highlight, text, children, dashes = true, media }: { eyebrow: string; title: string; highlight: string; text: string; children?: ReactNode; dashes?: boolean; media?: "orbit" }) {
   return (
@@ -103,8 +104,8 @@ export function CtaBand() {
               <Link href="/contact" className="mt-6 flex items-center justify-center gap-2 rounded-full bg-button px-7 py-3.5 font-bold text-onbutton shadow-xl shadow-button/25 transition hover:bg-buttondark">
                 Reach us <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href="mailto:hello@openroadsoftware.com" className="mt-3 flex items-center justify-center gap-2 rounded-full border border-primary/15 px-7 py-3.5 font-semibold text-primary transition hover:border-primary/40 hover:bg-primary/5">
-                <Mail className="h-4 w-4 text-accent" /> hello@openroadsoftware.com
+              <a href={`mailto:${CONTACT_EMAIL}`} className="mt-3 flex items-center justify-center gap-2 rounded-full border border-primary/15 px-7 py-3.5 font-semibold text-primary transition hover:border-primary/40 hover:bg-primary/5">
+                <Mail className="h-4 w-4 text-accent" /> {CONTACT_EMAIL}
               </a>
               <p className="mt-5 text-center text-sm text-primary/50">
                 Not ready yet?{" "}

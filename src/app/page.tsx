@@ -4,6 +4,8 @@ import { ArrowRight, ArrowUpRight, BadgeCheck, Cloud, Code2, Compass, Globe, Lay
 import Reveal from "@/components/Reveal";
 import { CtaBand, SectionHeading } from "@/components/Shared";
 import { heroImage, processSteps, projects, services, stats } from "@/lib/data";
+import { WHATSAPP_URL } from "@/lib/contact";
+import { FaWhatsapp } from "react-icons/fa";
 
 const serviceIcons = [Globe, Layers, Cloud, Smartphone];
 const processIcons = [Compass, PenTool, Code2, Rocket];
@@ -73,9 +75,9 @@ export default function HomePage() {
               Openroad Software Solution designs and builds web applications, portfolio websites, SaaS products and mobile apps — exquisite, fast, and made to take your business further.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-button px-7 py-3.5 font-bold text-onbutton shadow-xl shadow-button/25 transition hover:bg-buttondark">
-                Start your project <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-button px-7 py-3.5 font-bold text-onbutton shadow-xl shadow-button/25 transition hover:bg-buttondark">
+                <FaWhatsapp className="h-5 w-5" aria-hidden /> Start your project
+              </a>
               <Link href="/projects" className="inline-flex items-center gap-2 rounded-full border border-primary/15 px-7 py-3.5 font-semibold text-primary transition hover:border-primary/40 hover:bg-primary/5">
                 View project gallery <ArrowUpRight className="h-4 w-4" />
               </Link>
