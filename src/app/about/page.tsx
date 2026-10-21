@@ -31,6 +31,17 @@ const founder = {
   quote: "When you hire Openroad, you get my number — not a ticket queue.",
 };
 
+const coFounder = {
+  name: "Peter Rague",
+  role: "Co-Founder",
+  initials: "PR",
+  bio: [
+    "Peter Rague is a Co-Founder of Openroad Software Solution, working alongside Calm Minani to help lead the studio and the work it delivers.",
+    "Together, the founders keep Openroad deliberately small and senior: clear direction, direct communication and personal accountability on every project, from the first conversation through launch and beyond.",
+  ],
+  focus: ["Studio direction", "Client partnership", "Personal accountability"],
+};
+
 const whyUs = [
   { icon: UserCheck, title: "Senior team only", text: "No hand-offs and no juniors learning on your budget. The people you meet are the people who design and build your product." },
   { icon: MessagesSquare, title: "Direct conversation", text: "You talk straight to the builders — plain language, honest answers, and one point of contact from first call to launch." },
@@ -146,6 +157,59 @@ export default function AboutPage() {
           </div>
         </Reveal>
       </div>
+
+      {/* Co-founder */}
+      <section className="mx-auto max-w-[1440px] px-5 pt-20 sm:px-6" aria-labelledby="co-founder-heading">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[32px] border border-primary/10 bg-surface shadow-xl shadow-primary/5">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-accent2 to-accent" aria-hidden />
+            <div className="bg-grid absolute inset-0 opacity-50" aria-hidden />
+            <div className="pointer-events-none absolute -top-32 right-[8%] h-72 w-72 rounded-full bg-accent/12 blur-[100px]" aria-hidden />
+            <div className="pointer-events-none absolute -bottom-36 left-[-60px] h-72 w-72 rounded-full bg-accent2/10 blur-[100px]" aria-hidden />
+
+            <div className="relative grid items-center gap-10 px-7 py-10 sm:px-11 sm:py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+              <div className="mx-auto w-full max-w-sm text-center lg:mx-0">
+                <div className="relative mx-auto grid aspect-square w-full max-w-[280px] place-items-center overflow-hidden rounded-[36px] border border-accent/20 bg-gradient-to-br from-accent/20 via-elevated to-accent2/20 shadow-2xl shadow-accent/10">
+                  <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
+                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-accent/20 blur-3xl" aria-hidden />
+                  <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-accent2/20 blur-3xl" aria-hidden />
+                  <span className="relative font-[family-name:var(--font-sora)] text-7xl font-bold tracking-tight text-primary sm:text-8xl">
+                    {coFounder.initials}
+                  </span>
+                </div>
+                <p className="mt-6 font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">{coFounder.name}</p>
+                <p className="mt-2 inline-flex rounded-full bg-accent/10 px-3.5 py-1.5 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">
+                  {coFounder.role}
+                </p>
+              </div>
+
+              <div>
+                <p className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/8 px-4 py-1.5 text-xs font-bold tracking-[0.22em] text-accent uppercase">
+                  <span className="h-1.5 w-1.5 animate-glow rounded-full bg-accent2" /> Meet the co-founder
+                </p>
+                <h2 id="co-founder-heading" className="mt-6 font-[family-name:var(--font-sora)] text-3xl leading-tight font-bold tracking-tight text-primary sm:text-5xl">
+                  {coFounder.name}, <span className="text-gradient">helping lead the road ahead.</span>
+                </h2>
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-primary/60">
+                  {coFounder.bio.map((paragraph) => (
+                    <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {coFounder.focus.map((item) => (
+                    <span key={item} className="rounded-full border border-accent/25 bg-accent/8 px-4 py-1.5 text-[13px] font-semibold text-accent">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <Link href="/contact" className="group mt-8 inline-flex items-center gap-2 font-[family-name:var(--font-sora)] text-[15px] font-bold text-primary transition hover:text-accent">
+                  Work with our team <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
 
       {/* Story */}
       <section className="mx-auto max-w-[1440px] px-5 pt-16 pb-24 sm:px-6 lg:pt-20">
