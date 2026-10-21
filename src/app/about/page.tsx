@@ -20,11 +20,11 @@ const values = [
   { icon: Route, title: "Built for the long road", text: "Clean code, mainstream technology, full IP ownership. What we build today should still serve you in five years." },
 ];
 
-{/* Replace the name, photo and bio below with the real founder's details */}
+{/* Founder — real photo at public/images/projects/calm.jpeg */}
 const founder = {
   name: "Calm Minani",
   role: "Founder & CEO",
-  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1600&auto=format&fit=crop",
+  image: "/images/projects/calm.jpeg",
   bio: [
     "I kept seeing the same problem: good ideas dying in translation — passed between sales teams, account managers and developers who never spoke to the client. Projects dragged, budgets bloated, and businesses ended up with software that solved the wrong problem.",
     "So I founded Openroad in 2021 to meet that need properly: a small, senior team where you talk directly to the people building your product. We start with the problem you're solving, agree a transparent plan before any code, then show you real progress every week — software that meets the actual need, not just the brief.",
@@ -36,11 +36,9 @@ const coFounder = {
   name: "Peter Rague",
   role: "Co-Founder",
   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
-  bio: [
-    "Peter Rague is a Co-Founder of Openroad Software Solution, working alongside Calm Minani to help lead the studio and the work it delivers.",
-    "Together, the founders keep Openroad deliberately small and senior: clear direction, direct communication and personal accountability on every project, from the first conversation through launch and beyond.",
-  ],
-  focus: ["Studio direction", "Client partnership", "Personal accountability"],
+  message:
+    "I believe good software starts long before the first line of code — it starts with listening. Understanding the business, the people who will use the system every day, and the problem that actually needs solving. Get that right, and the technology follows naturally.",
+  quote: "Tell us where you're trying to go, and we'll be honest — about the route, the cost, and what it will take to get there.",
 };
 
 const whyUs = [
@@ -107,12 +105,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Joining badge where the two portraits overlap */}
-              <div className="absolute top-[44%] left-[36%] z-10 hidden -translate-x-1/2 -translate-y-1/2 sm:block" aria-hidden>
-                <span className="grid h-16 w-16 place-items-center rounded-full border border-white/30 bg-gradient-to-br from-accent to-accent2 font-[family-name:var(--font-sora)] text-sm font-bold text-white shadow-2xl shadow-accent/30">
-                  CM + PR
-                </span>
-              </div>
             </div>
           </Reveal>
 
@@ -143,16 +135,11 @@ export default function AboutPage() {
                     <h2 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-primary">{coFounder.name}</h2>
                     <span className="rounded-full bg-accent2/10 px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-accent uppercase">{coFounder.role}</span>
                   </div>
-                  <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-primary/60">
-                    {coFounder.bio.map((paragraph) => (<p key={paragraph.slice(0, 24)}>{paragraph}</p>))}
-                  </div>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {coFounder.focus.map((item) => (
-                      <span key={item} className="rounded-full border border-accent/25 bg-accent/8 px-4 py-1.5 text-[13px] font-semibold text-accent">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="mt-4 text-[15px] leading-relaxed text-primary/60">{coFounder.message}</p>
+                  <figure className="mt-5 border-l-2 border-accent2 pl-5">
+                    <Quote className="h-5 w-5 text-accent2" aria-hidden />
+                    <blockquote className="mt-2 leading-relaxed font-medium text-primary/80 italic">“{coFounder.quote}”</blockquote>
+                  </figure>
                 </article>
               </div>
 

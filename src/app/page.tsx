@@ -87,8 +87,10 @@ export default function HomePage() {
 
           {/* Phone — a successful WhatsApp conversation with a client,
               from first problem to launch day. Sits lower than the copy
-              and auto-scrolls through the whole story (HeroPhone). */}
-          <Reveal delay={160} className="relative mx-auto mt-4 w-full max-w-[320px] min-w-0 lg:mt-10">
+              and auto-scrolls through the whole story (HeroPhone).
+              Desktop only: hidden on mobile/tablet so the small-screen
+              hero stays focused on the headline and CTAs. */}
+          <Reveal delay={160} className="relative mx-auto mt-4 hidden w-full max-w-[320px] min-w-0 lg:mt-10 lg:block">
             <HeroPhone />
           </Reveal>
         </div>
