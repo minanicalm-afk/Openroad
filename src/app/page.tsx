@@ -6,6 +6,7 @@ import { CtaBand, SectionHeading } from "@/components/Shared";
 import { heroImage, processSteps, projects, services, stats } from "@/lib/data";
 import { WHATSAPP_URL } from "@/lib/contact";
 import { FaWhatsapp } from "react-icons/fa";
+import HeroPhone from "@/components/HeroPhone";
 
 const serviceIcons = [Globe, Layers, Cloud, Smartphone];
 const processIcons = [Compass, PenTool, Code2, Rocket];
@@ -63,8 +64,8 @@ export default function HomePage() {
         <div className="pointer-events-none absolute top-0 right-[-180px] h-[560px] w-[560px] rounded-full bg-accent2/20 blur-[130px]" aria-hidden />
         <div className="pointer-events-none absolute bottom-[-120px] left-[-120px] h-[420px] w-[420px] rounded-full bg-accent/18 blur-[110px]" aria-hidden />
         <div className="pointer-events-none absolute top-[38%] left-[38%] h-[300px] w-[300px] rounded-full bg-accent/10 blur-[100px]" aria-hidden />
-        <div className="relative mx-auto flex min-h-[560px] max-w-[1440px] flex-col justify-center px-5 py-20 sm:min-h-[648px] sm:px-6">
-          <Reveal className="max-w-3xl">
+        <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 pt-8 pb-12 sm:px-6 sm:pt-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-8 lg:pt-10">
+          <Reveal className="max-w-3xl min-w-0 lg:mt-10">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/12 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary/70">
               <span className="animate-glow h-2 w-2 rounded-full bg-micro" /> Now accepting new projects for 2026
             </p>
@@ -82,6 +83,13 @@ export default function HomePage() {
                 View project gallery <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
+          </Reveal>
+
+          {/* Phone — a successful WhatsApp conversation with a client,
+              from first problem to launch day. Sits lower than the copy
+              and auto-scrolls through the whole story (HeroPhone). */}
+          <Reveal delay={160} className="relative mx-auto mt-4 w-full max-w-[320px] min-w-0 lg:mt-10">
+            <HeroPhone />
           </Reveal>
         </div>
       </section>
