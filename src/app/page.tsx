@@ -185,16 +185,15 @@ export default function HomePage() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {projects.slice(0, 3).map((p, i) => (
-              <Reveal key={p.title} delay={i * 80}>
-                <Link href="/projects" className="card-hover group block overflow-hidden rounded-[26px] border border-primary/8 bg-primary/[0.03] hover:border-primary/25">
-                  <div className="relative overflow-hidden">
+              <Reveal key={p.title} delay={i * 80} className="h-full">
+                <Link href="/projects" className="card-hover group flex h-full flex-col overflow-hidden rounded-[26px] border border-primary/8 bg-primary/[0.03] hover:border-primary/25">
+                  <div className="relative shrink-0 overflow-hidden">
                     <Image src={p.image} alt={p.title} width={900} height={600} className="h-56 w-full object-cover transition duration-700 group-hover:scale-105" />
-                    <span className={`absolute top-4 left-4 rounded-full bg-gradient-to-r ${p.gradient} px-3.5 py-1.5 text-xs font-bold text-white`}>{p.category}</span>
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-[family-name:var(--font-sora)] text-xl font-bold text-primary">{p.title}</h3>
                     <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-primary/55">{p.description}</p>
-                    <p className="mt-4 flex items-center gap-2 text-sm font-bold text-accent"><BadgeCheck className="h-4 w-4" /> {p.result}</p>
+                    <p className="mt-auto flex items-center gap-2 pt-4 text-sm font-bold text-accent"><BadgeCheck className="h-4 w-4 shrink-0" /> {p.result}</p>
                   </div>
                 </Link>
               </Reveal>

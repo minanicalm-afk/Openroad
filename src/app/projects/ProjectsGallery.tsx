@@ -36,7 +36,6 @@ export default function ProjectsGallery() {
             <div className="relative overflow-hidden">
               <Image src={p.image} alt={`${p.title} — ${p.category}`} width={900} height={620} className="h-60 w-full object-cover transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent opacity-0 transition group-hover:opacity-100" />
-              <span className={`absolute top-4 left-4 rounded-full bg-gradient-to-r ${p.gradient} px-3.5 py-1.5 text-xs font-bold text-white shadow-lg`}>{p.category}</span>
               <span className="absolute right-4 bottom-4 grid h-10 w-10 translate-y-2 place-items-center rounded-full bg-accent text-onaccent opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"><ArrowUpRight className="h-5 w-5" /></span>
             </div>
             <div className="flex flex-1 flex-col p-6">
@@ -45,7 +44,6 @@ export default function ProjectsGallery() {
                 <span className="text-sm font-semibold text-primary/35">{p.year}</span>
               </div>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-primary/55">{p.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">{p.tags.map((t) => <span key={t} className="rounded-full bg-primary/6 px-3 py-1 text-xs font-medium text-primary/55">{t}</span>)}</div>
               <p className="mt-5 flex items-center gap-2 border-t border-primary/8 pt-4 text-sm font-bold text-accent"><BadgeCheck className="h-4 w-4 shrink-0" /> {p.result}</p>
               {p.url && (
                 <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-[family-name:var(--font-sora)] text-sm font-bold text-primary transition hover:text-accent">
