@@ -35,7 +35,7 @@ const founder = {
 const coFounder = {
   name: "Peter Rague",
   role: "Co-Founder",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
+  image: "/images/projects/peter.jpeg",
   message:
     "I believe good software starts long before the first line of code — it starts with listening. Understanding the business, the people who will use the system every day, and the problem that actually needs solving. Get that right, and the technology follows naturally.",
   quote: "Tell us where you're trying to go, and we'll be honest — about the route, the cost, and what it will take to get there.",
